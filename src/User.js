@@ -1,25 +1,31 @@
-let username = "catanacomics";
-let userPfp = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmaus9yuzZxT4W44nk59iqCq4g8Bae3773Qg&s"
+import React from "react";
+
 
 export default function User(){
+
+  const  [name, setName] = React.useState("catanacomics");
+  const [pic, setPic] = React.useState("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmaus9yuzZxT4W44nk59iqCq4g8Bae3773Qg&s");
+
 return (
-<div class="usuario">
-<img src={userPfp} alt="imagem de perfil" onClick={setPfp}/>
-<div class="texto">
+<div className="usuario">
+<img src={pic} alt="imagem de perfil" onClick={setPfp}/>
+<div className="texto">
   <span>
-    <strong>{username}</strong>
+    <strong>{name}</strong>
     <ion-icon name="pencil" onClick={setUser}></ion-icon>
   </span>
 </div>
 </div>
 )
-};
-
 
 function setUser(){
-    username = prompt("Qual seu novo nome de usuário?");
+    const nameType = prompt("Qual seu novo nome de usuário?");
+    setName(nameType);
 }
 
 function setPfp(){
-  userPfp = prompt("Insira o link da sua nova imagem de perfil");
+  const picType = prompt("Insira o link da sua nova imagem de perfil");
+  setPic(picType);
 }
+};
+
