@@ -1,9 +1,9 @@
 import React from "react"
 
-export default function Post (props){
+export default function Post ({username, userImg, postImg, initialLikes, likedImg, likedName}){
         const [likePost, setLikePost] = React.useState(false);
         const [savePost, setSavePost] = React.useState(false);
-        const [totalLikes, setTotalLikes] = React.useState(101523);
+        const [totalLikes, setTotalLikes] = React.useState(initialLikes);
 
         const toggleLike = () => { 
                 setLikePost((prevState) => !prevState);
@@ -20,8 +20,8 @@ return (
 <div className="post">
   <div className="topo">
     <div className="usuario">
-      <img src={props.userImg} alt={props.userAlt}/>
-      {props.userAlt}
+      <img src={userImg}/>
+      {username}
     </div>
     <div className="acoes">
       <ion-icon name="ellipsis-horizontal"></ion-icon>
@@ -29,7 +29,7 @@ return (
   </div>
 
   <div className="conteudo">
-    <img src={props.img} alt={props.alt}/>
+    <img src={postImg}/>
   </div>
 
   <div className="fundo">
@@ -45,9 +45,9 @@ return (
     </div>
 
     <div className="curtidas">
-      <img src={props.likeImg} alt={props.likeAlt}/>
+      <img src={likedImg}/>
       <div className="texto">
-        Curtido por <strong>{props.likeAlt}</strong> e <strong>outras {totalLikes} pessoas</strong>
+        Curtido por <strong>{likedName}</strong> e <strong>outras {totalLikes} pessoas</strong>
       </div>
     </div>
   </div>

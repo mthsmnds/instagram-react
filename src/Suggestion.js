@@ -4,9 +4,9 @@ export default function Suggestion (props){
         return(
 <div className="sugestao">
   <div className="usuario">
-    <img src={props.img} alt={props.alt}/>
+    <img src={props.img} alt={props.username}/>
     <div className="texto">
-      <div className="nome">{props.alt}</div>
+      <div className="nome">{props.username}</div>
       <div className="razao">{props.status}</div>
     </div>
   </div>
